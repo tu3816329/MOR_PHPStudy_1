@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         }
     }
 } elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
-
-    if (isset($_POST['btAction']) && $_POST['btAction'] == "Upload") {        
+    if (isset($_POST['btAction']) && $_POST['btAction'] == "Upload") {
         $target_dir = getcwd() . "/../Resource/Upload/";
         $target_file = $target_dir . basename($_FILES['imgupload']['name']);
         $img_extension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -47,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $username = $_COOKIE['user'];
             $sql = "UPDATE `exc3_user` SET `avatarUrl` = ? WHERE `exc3_user`.`username` LIKE ?";
             $stm = $con->prepare($sql);
-            $img=$username . "." . $img_extension;
+            $img = $username . "." . $img_extension;
             $stm->bind_param("ss", $img, $username);
             $stm->execute() or die("Cannot add to database");
             $stm->close();
@@ -55,6 +54,28 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         } else {
             echo json_encode(["status" => false, "msg" => "Sorry, there was an error uploading your file."]);
         }
+    } elseif (isset($_POST['btAction']) && $_POST['btAction'] == "Delete") {
+        $con = connection();
+        $username = $_COOKIE['user'];
+        $sql = "DELETE FROM exc3_user WHERE username LIKE ?";
+        $stm = $con->prepare($sql);
+//        echo $username;
+        $stm->bind_param("s", $username);
+        $stm->execute() or die(json_encode(["status" => false, "msg" => "Unable to delete user"]));
+        $stm->close();
+        echo json_encode(["status" => true]);
+    } elseif (isset($_POST['btAction']) && $_POST['btAction'] == "Update") {
+        $con = connection();
+        $username = $_COOKIE['user'];
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $birthday = $_POST['birthday'];
+        $sql = "UPDATE exc3_user SET fullname = ?, email = ?, birthday = ? WHERE username LIKE ?";
+        $stm = $con->prepare($sql);
+        $stm->bind_param("ssss", $fullname, $email, $birthday, $username);
+        $stm->execute() or die(json_encode(["status" => false, "msg" => "Unable to update user"]));
+        $stm->close();
+        echo json_encode(["status" => true]);
     }
 }
 

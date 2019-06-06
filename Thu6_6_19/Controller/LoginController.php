@@ -8,7 +8,7 @@
 require '../DBO/Connection.php';
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (isset($_POST['btAction']) && $_POST['btAction'] === "Login") {
-        
+
         $username = $_POST["txtUsername"];
         $pass = $_POST["txtPassword"];
         $con = connection();
@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 echo json_encode(["status" => false, "msg" => "Incorrect Password Or Username"]);
                 die();
             }
+        } else {
+            echo json_encode(["status" => false, "msg" => "Account not existed"]);
         }
     }
 }

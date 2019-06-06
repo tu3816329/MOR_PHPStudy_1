@@ -374,7 +374,20 @@
                                             <div class="col-lg-7 mb-4">
                                                 <input type="date" id="pBirthday" value="" readonly style="border-top: none;border-left: none;border-right: none;"/>
                                             </div>
-                                        </div
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3 mb-4"> 
+
+                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                <a class="" href="#" id="btEdit">Edit</a>
+                                            </div>
+                                            <div class="col-lg-7 mb-4">
+                                                <a class="" href="#" data-toggle="modal" data-target="#eraseModal">
+                                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                    Erase
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -425,7 +438,24 @@
                 </div>
             </div>
         </div>
-
+        <!--Erase modal-->
+        <div class="modal fade" id="eraseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Erase Account?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Delete" below if you are sure about deleting the account.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" id="btDelete" href="#">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bootstrap core JavaScript-->
         <script src="../Resource/vendor/jquery/jquery.min.js"></script>
 

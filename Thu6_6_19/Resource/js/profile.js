@@ -6,6 +6,68 @@
 $(document).ready(function () {
     checkLogin();
     loadData();
+
+    $('#btEdit').click(function (e) {
+        e.preventDefault();
+//        alert($('#btEdit').html())
+        if ($('#btEdit').text() === "Edit") {
+            $('#pFullname').attr('readonly', false);
+            $('#pEmail').attr('readonly', false);
+            $('#pBirthday').attr('readonly', false);
+            $('#pFullname').focus();
+            $('#btEdit').html("Save");
+        } else if ($('#btEdit').html() === "Save") {
+            $('#pFullname').attr('readonly', true);
+            $('#pEmail').attr('readonly', true);
+            $('#pBirthday').attr('readonly', true);
+            $.ajax({
+                url: "http://localhost/Project/Thu6_6_19/Controller/ProfileController.php",
+                type: "POST",
+                data: {
+                    "btAction": "Update", "fullname": $('#pFullname').val(), "email": $('#pEmail').val(), "birthday": $('#pBirthday').val()
+                }, success: function (result) {
+                    try {
+                        var rs = JSON.parse(result);
+                        if (rs.status == true) {                            
+                            $('#btEdit').html("Edit");
+                            location.reload();
+                        } else {
+                            alert(rs.msg);
+                        }
+                    } catch (e) {
+                        alert(e + "_" + result);
+                    }
+                }
+            })
+
+        }
+//        window.location.href = "http://localhost/Project/Thu6_6_19/Page/Login.php";
+    });
+
+    $('#btDelete').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "http://localhost/Project/Thu6_6_19/Controller/ProfileController.php",
+            type: "POST",
+            data: {
+                "btAction": "Delete"
+            }, success: function (result) {
+                try {
+                    var rs = JSON.parse(result);
+                    if (rs.status == true) {
+                        $.removeCookie('authen', {path: "/"});
+                        $.removeCookie('user', {path: "/"});
+                        window.location.href = "http://localhost/Project/Thu6_6_19/Page/Login.php";
+                    } else {
+                        alert(rs.msg);
+                    }
+                } catch (e) {
+                    alert(e + "_" + result);
+                }
+
+            }
+        });
+    });
     $('#btLogout').click(function (e) {
         e.preventDefault();
         $.removeCookie('authen', {path: "/"});
