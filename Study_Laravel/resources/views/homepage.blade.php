@@ -21,7 +21,6 @@
 .main{
   max-width:500px;
 }
-.ma
 @endSection()
 
 @section('script')
