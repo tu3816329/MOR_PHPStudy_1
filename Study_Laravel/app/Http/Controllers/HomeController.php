@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\DBO\News;
+use App\News;
 class HomeController extends Controller
 {
     public function index(){
