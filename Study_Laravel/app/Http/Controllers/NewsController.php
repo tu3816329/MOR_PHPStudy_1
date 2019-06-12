@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\News;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class NewsController extends Controller
 {
+    public function auth(){
+      dd(Auth::check());
+    }
     /**
      * Display a listing of the resource.
      *

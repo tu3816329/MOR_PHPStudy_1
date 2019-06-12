@@ -11,16 +11,10 @@
 |
 */
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 
-Route::get('/', 'HomeController@index');
-Route::resource('news', 'NewsController');
-Route::get('/test', function (Request $request) {
-    $uri = $request->path();
-    if ($uri=='test') {
-        echo $uri;
-        return redirect('/');
-    } else {
-        echo "shorray";
-    }
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('news', 'NewsController@auth');
+// Route::resource('news', 'NewsController');
+Route::get('/login','LoginController@showLogin')->name('login');
+Route::post('/login','LoginController@doLogin');
+Route::post('/search','SearchController')->name('search');
