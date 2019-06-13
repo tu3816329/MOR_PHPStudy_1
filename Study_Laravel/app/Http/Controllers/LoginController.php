@@ -30,7 +30,8 @@ class LoginController extends Controller
             // dd($request->all());
             $user =$request->all()['txtUsername'];
             $pass =$request->all()['txtPassword'];
-            if (Auth::attempt(['username'=>$user,'password'=>$pass])) {
+            $logRs=Auth::attempt(['username'=>$user,'password'=>$pass]);
+            if ($logRs) {
                 return redirect()->route('home');
                 // return redirect()->intended('/');
 

@@ -12,9 +12,10 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('news', 'NewsController@auth');
-// Route::resource('news', 'NewsController');
-Route::get('/login','LoginController@showLogin')->name('login');
-Route::post('/login','LoginController@doLogin');
-Route::post('/search','SearchController')->name('search');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('news', 'NewsController@auth');
+    // Route::resource('news', 'NewsController');
+    Route::get('/login', 'LoginController@showLogin')->name('login');
+    Route::post('/login', 'LoginController@doLogin');
+    Route::post('/search', 'SearchController')->name('search');
+    Route::get('/logout','LogoutController');

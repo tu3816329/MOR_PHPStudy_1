@@ -13,8 +13,9 @@
 .newsContent{
   border:none;
 }
-.news {
-  padding: 10px;
+
+.newsContent td{
+  <!-- height:4vw; -->
 }
 .main{
   padding: 10px;
@@ -160,15 +161,13 @@ function loadVideo(id){
       $('#playerWrapper').html(content);
       $('#playerWrapper iframe').attr('width','560');
       $('#playerWrapper iframe').attr('height','315');
+      window.scrollTo(0,0);
     }catch(e){
       alert("Exception"+result);
     }
     },error:function(rs){
       alert("Error:"+rs.responseText);
     }});
-}
-function run(id){
-  <!-- = -->
 }
 @endSection()
 <!-- ---------------------------------------Content------------------------------- -->
@@ -208,17 +207,6 @@ function run(id){
     <hr>
     <div class="uContent">
       <article class="artWrapper" id="searchContentWrapper">
-        <article class="searchItem">
-          <div>
-          <iframe width="280" height="150" src="https://www.youtube.com/embed/9sWEecNUW-o"
-          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-          </div>
-          <div style="padding-left:10px;">
-          <h3><a href="#" style="text-decoration:none">Title<a></h3>
-          <p>Description</p>
-          </div>
-        </article>
       </article>
     </div>
   @else
@@ -230,46 +218,55 @@ function run(id){
     @endisset
 @endif
 </div>
-  <hr>
   @isset($news)
-  <div class="left">
-  <table class="newsContent">
-      <tbody>
-        @for($counter =0;$counter< sizeof($news);$counter++)
-          @if (($counter % 2)==0)
-              <tr>
-                  <td><img src=" {{ $news[$counter]['image'] }} " width="140px" height="84px"/></td>
-                  <td>
-                  <label><b>{{ $news[$counter]['title'] }}</b></label><br>
-                  <span>{{ $news[$counter]['description'] }}</span>
-                  </td>
-              </tr>
-              <tr>
-                <td colspan="2"><hr></td>
-              </tr>
+    <hr>
+  <table class="newsContent" cellspacing="5px">
+    <tbody>
+      @for($counter =0;$counter< sizeof($news);$counter++)
+      <tr>
+        <td>
+          @if ($counter<sizeof($news))
+          <table class="newsContent" >
+            <tbody>
+                  <tr>
+                      <td><img src=" {{ $news[$counter]['image'] }} " width="140px" height="84px"/></td>
+                      <td>
+                      <label><b>{{ $news[$counter]['title'] }}</b></label><br>
+                      <span>{{ $news[$counter]['description'] }}</span>
+                      </td>
+                  </tr>
+                  <!-- <tr>
+                    <td colspan="2"><hr></td>
+                  </tr> -->
+                  <?php $counter++;?>
+            </tbody>
+          </table>
           @endif
-      @endfor
-      </tbody>
-  </table>
-  </div>
-  <div class="right">
-    <table class="newsContent">
-        <tbody>
-          @for($counter =0;$counter< sizeof($news);$counter++)
-            @if (($counter % 2)==1)
-                <tr>
+        </td>
+        <td>
+          @if ($counter<sizeof($news))
+          <table class="newsContent">
+            <tbody>
+                  <tr>
                     <td><img src=" {{ $news[$counter]['image'] }} " width="140px" height="84px"/></td>
                     <td>
-                    <label><b>{{ $news[$counter]['title'] }}</b></label><br>
-                    <span>{{ $news[$counter]['description'] }}</span>
-
+                      <label><b>{{ $news[$counter]['title'] }}</b></label><br>
+                      <span>{{ $news[$counter]['description'] }}</span>
                     </td>
-                </tr>
-                <td colspan="2"><hr></td>
+                  </tr>
+                  <!-- <tr>
+                    <td colspan="2"><hr></td>
+                </tr> -->
+              </tbody>
+            </table>
             @endif
-        @endfor
-        </tbody>
-    </table>
-  </div>
+      </td>
+      <tr>
+        <td colspan="2"><hr></td>
+    </tr>
+    </tr>
+    @endfor
+    </tbody>
+  </table>
   @endisset
 @endSection()

@@ -23,6 +23,9 @@
             ::-webkit-scrollbar {
                 display: none;
             }
+            .position-ref{
+                position: relative;
+            }
             .full-height {
                 height: 100%;
 
@@ -81,9 +84,14 @@
         </style>
     </head>
     <body>
-
+    <div class="full-height fluid-container">
       <div class="container full-height flex-center">
       <div class="header">
+      @if (Auth::check())
+          <span style='float:right;padding:10px'>
+          Welcome {{ Auth::user()->name }}, <a href='{{ url('/logout')}}' style='text-decoration:none'>Log out</a>
+          </span>
+      @endif
         <a href="/Study_Laravel/public/">
         <img src="https://s.vnecdn.net/vnexpress/restruct/i/v75/graphics/img_logo_vne_web.gif" class="logo" />
         </a>
@@ -118,6 +126,9 @@
             </div>
           </div>
         </div>
+
+                    @yield('extraModal')
+                    </div>
     </body>
     <script>
     @yield('script');

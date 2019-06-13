@@ -14,10 +14,11 @@ class CheckLogin
      */
     public function handle($request, Closure $next)
     {
-          $response = $next($request);
-          // if (!Auth::check() && $request->path()!='login'){
-          //   return redirect()->route('login');
-          // }
-        return $response;
+          if (!Auth::check() && $request->path()!='login'){
+            return redirect()->route('login');
+          }elseif (Auth::check() && $request->path()=='login'){
+            return redirect()->route('home');
+          }
+        return  $next($request);
     }
 }
