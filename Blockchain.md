@@ -31,7 +31,8 @@
 ##### Decentralization
 **Khuyết điểm của hệ thống lưu trữ hiện tại (Centralized Database & Distributed Database)**
 ###### Cơ sở dữ liệu tập trung (**Centralized Database**)
-![Centralized Database](https://cointelegraph.com/storage/uploads/view/ff5a440c7a2518cf95fcbecea33cdd56.jpg)
+
+![Centralized Database](https://i.ibb.co/4NCS3KJ/image.png)
 
 - Các dữ liệu được tiến hành lưu trữ tại duy nhất một địa điểm nhất định. Các hạn chế hiện tại bao gồm:
 	- Dựa trên yếu tố kết nối mạng, khi kết nối chậm sẽ tốn thời gian để truy cập dữ liệu.
@@ -107,7 +108,7 @@ Trên hình, David gửi Sandra 5 bitcoin. Thông tin đó sẽ được dùng v
 
 - Các giao dịch sau khi được gửi lên mạng lưới blockchain sẽ được nhóm vào một khối. Các giao dịch trong cùng một khối được coi là xảy ra cùng một lúc và các giao dịch chưa được thực hiện trong một khối được coi là chưa được xác nhận. Mỗi nút có thể nhóm các giao dịch với nhau thành một khối và gửi nó vào mạng lưới như một hàm ý cho các khối tiếp theo gắn vào đó
 - Vì bất kỳ nút nào cũng có thể tạo thành 1 khối mới nên 1 vấn đề được đặt ra là hệ thống sẽ đồng thuận thế nào để xác định khối nào là khối tiếp theo
-- Muốn thêm vào được trong blockchain, mỗi khối phải chứa một đoạn mã được tạo ra bằng thuật toán băm đóng vai trò như một đáp án cho một vấn đề toán học. Và trong mạng lưới luôn có một số lượng lớn các máy tính đều tập trung vào việc sinh ra dãy số này nên mạng lưới quy định mỗi khối được tạo ra sau một quãng thời gian (10p) một lần. Nút nào giải quyết trước sẽ được quyền gắn vào các khối dài nhất lên trên chuỗi và gửi nó tới toàn bộ mạng lưới (Nguyên lý đồng thuận Proof Of Work)
+- Muốn thêm vào được trong blockchain, mỗi khối phải chứa một đoạn mã được tạo ra bằng thuật toán băm đóng vai trò như một đáp án cho một vấn đề toán học. Để tìm được đáp án này cần phải đoán các con số ngẫu nhiên mà khi ghép vào sẽ tạo thành một giá trị được định trước của hệ thống. Và trong mạng lưới luôn có một số lượng lớn các máy tính đều tập trung vào việc sinh ra dãy số này nên mạng lưới quy định mỗi khối được tạo ra sau một quãng thời gian (10p) một lần. Nút nào giải quyết trước sẽ được quyền gắn vào các khối dài nhất lên trên chuỗi và gửi nó tới toàn bộ mạng lưới (Nguyên lý đồng thuận Proof Of Work). Quá trình trên còn được gọi là **Mining** với blockchain.
 
 ![Proof of work](https://i.ibb.co/Bcbrh2q/image.png)
  
@@ -146,4 +147,59 @@ Trên hình, David gửi Sandra 5 bitcoin. Thông tin đó sẽ được dùng v
 Vấn đề được đặt ra khi tướng quân Byzantine yêu cầu sự nhóm quân của mình tấn công vào thành đồng bộ cùng một lúc nhưng không thể truyền thông tin chính xác đến tất cả nhóm vì có thể xảy ra việc thay đổi nội dung thông tin trong lúc truyền đi. 
 
 Hướng giải quyết của hệ thống được đề ra để tất cả các nút kiểm tra cùng 1 thông tin của mình từ các nút khác nhau và kiểm tra sự đồng thuận ở đại đa số các nút trong hệ thống. 
-  
+
+## Ethereum / Bitcoin
+### Bitcoin - Decentralized Payment System
+- Một hệ thống sổ cái tường minh sử dụng mệnh giá **Bitcoin** để tiến hành giao dịch như một dạng tiền ảo và không cần một bên thứ ba. Một mạng lưới **bitcoin** bao gồm rất nhiều máy tính cùng tham gia xử lí và giữ bảng lưu của cuốn sổ cái chính. Một người dùng có thể thấy tất cả các giao dịch nhưng không thể biết cụ thể cá nhân đó là ai do sử dụng mã để thể hiện.
+- Trong **bitcoin**, người dùng có thể đạt được đồng **bitcoin** thông qua đóng góp tài nguyên của máy để tiến hành đoán đáp án bài toán, giành quyền để thêm khối các giao dịch vào trong chuỗi blockchain. **Bitcoin** sử dụng một thuật toán tăng độ khó của giải thuật (mining difficulty) tự động chỉnh sửa với việc tăng khả năng giải quyết vấn đề của hệ thống (cụ thể là tăng số lượng người tham gia đào bitcoin).
+- Lợi nhuận của một người đào bitcoin phụ thuộc vào nhiều yếu tố như: Khả năng tính toán băm, phần thưởng block (thường giảm nửa mỗi 210000 blocks tức khoảng 4 năm), độ khó của việc đào, chi phí để sử dụng hệ thống đào bitcoin, lượng năng lượng sử dụng để đào, chi phí tham gia các pools đào bitcoin ( Tất cả các máy cùng tham gia đào một đáp án và được thưởng tương ứng với phần trăm đóng góp của máy đó), giá bitcoin, sự tăng của độ khó.
+- Khi tham gia đào bitcoin, bạn sẽ tạo một ví bitcoin tương ứng để lưu trữ các thông tin liên quan đến tài sản của mình.
+- Một ví bitcoin (**Bitcoin Wallet**) lưu trữ **private-key** dùng để quản lý các tài sản của bạn trong hệ thống **bitcoin**. Một ví có nhiệm vụ theo dõi và cập nhật số dư của tài khoản với mỗi giao dịch, gửi và nhận bitcoin.
+- Ví HDWallet cho phép tạo ra một **private-key** dựa trên 1 danh sách các từ khóa do người dùng định nghĩa gọi là **seed** . Nếu người dùng có cùng **seed** sẽ là 1 phần của một ví chung.
+- Có các loại ví như:
+	- Full nodes : Lưu trữ toàn bộ thông tin của bitcoin bao gồm tất cả các thông tin giao dịch.
+	- Light wallet: Dựa vào Full node mà nó liên kết tới để kiểm tra, xác minh giao dịch.
+	- Hot wallet: Một dạng ví có liên kết đén internet. Đây là dạng ví phổ biến nhưng cũng ít an toàn nhất.
+### Ethereum - Decentralized Super Computer
+- Một nền tảng (**platform**) phát triển các ứng dụng Dapp (**Decentralize Application**) bằng sử dụng ngôn ngữ **Solidarity** viết các **smart contract** (Các mệnh đề if then để thực hiện các hành động một cách chính xác với các tình huống có thể xảy ra). Một hợp đồng sau khi được đăng lên hệ thống sẽ không thể bị thay đổi.
+- **Ethereum** sử dụng đồng tiền **Ether** để giao dịch. Một người dùng muốn đưa ứng dụng lên nền tảng phi tập  trung của **Ethereum** phải trả một số **Ether**. Đồng **Ether** được dùng để trả cho các đơn vị cung cấp máy được dùng để lưu trữ thông tin để bảo dưỡng và trả chi phí duy trì.
+- **Ethereum** là một nền tảng bao gồm đầy đủ các chức năng mà không cần đến các tổ chức thứ ba, có một kế hoạch mở rộng rõ ràng và được sự hỗ trợ của nhiều công ty lớn tuy nhiên **Ethereum** không tập trung vào đồng tiền ảo như **Bitcoin** và hiên tại cũng rất ít tài liệu hướng dẫn cách sử dụng nền tảng này
+- Có các loại người dùng với hệ thống **Ethereum** bao gồm:
+	- **Externally Owned Account (EOA)**: Bao gồm **Ethereum Address**, lưu trữ và được điều khiển thông qua **private-key** . **EOA** có thể tạo hợp đồng thông minh và kích hoạt chúng, gửi và nhận Ether. 
+	- **Contract Account**: Bao gồm **Ethereum Address** và **code**. Tài khoản **Contract** không giữ **private-key**. Các dòng lệnh thiết kế hợp đồng bao gồm một nhóm các điều kiện định sẵn để quản lý tài khoản. Tài khoản **Contract** có khả năng nhận và gửi **Ether** hay thậm chí tạo một tài khoản khác.
+- Một tài khoản **EOA** có thể giao tiếp với các tài khoản **EOA** và **Contract** khác thông qua các tin nhắn (**Messages**) được gửi trong các giao dịch (được trả bằng **Ether**).
+- Một giao dịch của **Ethereum** có thể được dùng với nhiều mục đích:
+	- Gửi 1 giá trị ( gửi **Ether** )
+	- Dùng để tạo một hợp đồng thông minh ( Bằng cách gửi 1 giao dịch trong đó chứa mã **code** của hợp đồng)
+	- Dùng để kích hoạt hợp đồng thông minh
+- Tương tự Bitcoin có các loại ví:
+	- Full Client / Full Node: Là một máy tính nắm giữ toàn bộ thông tin của hệ thống blockchain từ đầu. Sử dụng full node yêu cầu một lượng lớn bộ nhớ và năng lượng sử dụng nhưng cho phép xác minh giao dịch trên blockchain của Ethereum mà không cần sử dụng bên thứ ba. Full nodes là một phần nguồn lực chính của hệ thống và thường sẽ khó hơn để sử dụng. Một số client phổ biến để chạy Ethereum full nodes bao gồm:
+		- **Geth (Go Ethereum)** : Một công cụ phổ biến để phát triền phần mềm và cộng đồng Ethereum user
+		- **Mist**: Một giao diện cho phép người dùng bình thường tương tác với Geth
+		- **Parity**: Một client cho phép chạy Fullnode của Ethereum. Là phần mềm phổ biến thứ 2(sau Geth)
+
+	- Light Node: Một node dựa trên một full node để lấy các thông tin cần thiết, nắm giữ chỉ một phần của blockchain nên yêu cầu về bộ nhớ ít hơn nhưng phải thông qua một bên thứ ba và dễ sử dụng hơn.
+	- Hardware Node: Một node an toàn nhất về mặt bảo mật nhưng chỉ có khả năng gửi và nhận **Ether** coin và không thể viết một hợp đồng thông minh
+
+####Transaction Fees & Gas
+- 1 **Ether** có thể được chia  thành 1 tỷ tỷ đơn vị (1 **Ether** = 1,000,000,000,000,000,000 **Wei** - 10^8  **Wei**), phí giao dịch bình thường được tính theo 1 **Gwei** = 1,000,000,000 **Wei**
+- **Gas** là nguyên liệu để sử dụng chay từng mã lệnh của **contract** tương tự nguyên lí chạy xe. Khi sử dụng hết **Gas**, code của **contract** sẽ dừng, chính vì vậy người dùng cần viết **contract** một cách gọn gàng hợp lí và cô đặc vì **Gas** tốn tiền. Số tiền trả cho **Gas** được gửi cho người đào do họ đóng góp tài nguyên máy tính cho việc thêm các giao dịch vào hệ thống **Ethereum** 
+- **Gas** mang lại một giá trị cố định tương ứng với mỗi hành động thay vì chọn các giá khác nhau của đồng **Ether** cho hành động đó.Giá của **Gas** thay đổi tùy thuộc độ đông của mạng lưới.
+- Khi gửi một giao dịch, ta cần nêu rõ giới hạn **Gas** được sử dụng ( trả trước ) và sẽ không có cách nào bổ sung lượng **Gas** đã đặt ra (refueling) nên cần tránh các việc như trả thiếu **gas** vì nếu đặt ra nhiều hơn **gas** sự dụng sẽ được refund nhưng nếu đặt ra ít hơn thì sẽ mất lượng đã đặt ra (no refund). Điều này có thể xảy ra trong một số trường hợp như dòng mã lệnh chạy vòng lặp đệ qui vào sử dụng hết nhiên liệu.
+- Fees = Gas used x Gas bid.
+
+### Ví MEW - My Ether Wallet
+- Ví MEW là một client chuyên được dùng để lưu trữ các token chạy trên nền tảng **Ethereum**
+
+### Ethereum Mainnet & Testnet
+![Main net & Test net](https://masterthecrypto.com/wp-content/uploads/2019/01/wsi-imageoptim-main20vs20test1.png)
+
+- So với mainnet - một mạng lưới blockchain đầy đủ chức năng - testnet là một mạng lưới blockchain được tạo ra và mô phỏng với mục đích như một môi trường thử nghiệm, tại đó, các giao dịch và các đồng tiền tệ ảo được mô phỏng nhưng không có giá trị thật sự.
+
+- Môi trường testnet là nơi được dùng để phát triển và kiểm thử các chức năng của mạng lưới blockchain chính để đảm bảo sự toàn vẹn của hệ thống chính.
+
+
+---
+
+# B. Ethereum - Solidity 
+## 1. Setup a local ethereum testnet
